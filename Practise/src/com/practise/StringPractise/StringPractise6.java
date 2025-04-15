@@ -13,8 +13,8 @@ public class StringPractise6 {
 		String str = "Myself Mahesh and I am a Full Stack Developer";
 		List<String> strA = new ArrayList<>(Arrays.asList(str.split(" ")));
 		Collections.reverse(strA);
-		System.out.println(strA);
-		
+		System.out.println(String.join(" ", strA));
+
 		StringBuilder strB = new StringBuilder(str);
 		strB.reverse();
 		System.out.println(strB);

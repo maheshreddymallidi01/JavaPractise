@@ -2,6 +2,7 @@ package Practise;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class PractiseTemp2 {
 
@@ -15,6 +16,8 @@ public class PractiseTemp2 {
 		List<String> mmr = Arrays.asList("ab", "aba", "xoy", "pop", "mmr");
 		mmr.stream().filter(i -> i.length() > 0 && i.endsWith(String.valueOf(i.charAt(0))))
 				.forEach(System.out::println);
+		int[] arr2 = { 1, 2, 3, 4, 5 };
+		System.out.println(IntStream.range(0, arr2.length).filter(i -> arr2[i] == 3).findFirst().orElse(-1));
 	}
 
 	private static void moveZerosToEnd(int[] arr) {

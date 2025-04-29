@@ -26,8 +26,10 @@ public class PractiseTemp2 {
 			System.out.print(r + " ");
 		}
 		System.out.println();
-		int[] arr4 = {1,0,1,1,0,1};
+		int[] arr4 = { 1, 0, 1, 1, 0, 1 };
 		System.out.println(maximumOnes(arr4));
+		int[] arr5 = { 4, 1, 2, 1, 2 };
+		System.out.println(uniqueNum(arr5));
 	}
 
 	private static void moveZerosToEnd(int[] arr) {
@@ -54,18 +56,22 @@ public class PractiseTemp2 {
 		r = s.stream().mapToInt(i -> Integer.valueOf(i)).toArray();
 		return r;
 	}
-	
-	private static int maximumOnes(int[] arr4) { //  1,0,1,1,0,1
-		int count=0;
+
+	private static int maximumOnes(int[] arr4) { // 1,0,1,1,0,1
+		int count = 0;
 		int max = Integer.MIN_VALUE;
-		for(int i=0;i<arr4.length;i++) {
-			if(arr4[i]==1) {
-				count+=1;
-			}else {
-				count=0;
+		for (int i = 0; i < arr4.length; i++) {
+			if (arr4[i] == 1) {
+				count += 1;
+			} else {
+				count = 0;
 			}
 			max = Math.max(max, count);
 		}
 		return max;
+	}
+
+	private static int uniqueNum(int[] arr5) {
+		return Arrays.stream(arr5).boxed().toList().stream().reduce(0, (a, b) -> a ^ b);
 	}
 }

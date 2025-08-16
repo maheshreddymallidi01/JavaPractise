@@ -1,9 +1,5 @@
 package com.practise.ArraysPractise;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.IntStream;
-
 public class FibonacciSeries {
 
 	public static void main(String[] args) {

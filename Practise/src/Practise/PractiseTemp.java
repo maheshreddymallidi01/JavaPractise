@@ -13,6 +13,7 @@ public class PractiseTemp {
 		int[] arr2 = { 1, 2, 3, 4, 5 };
 		System.out.println(findLargest(arr));
 		System.out.println(findSecondLargest(arr));
+		System.out.println(findSecondSmallest(arr));
 		System.out.println(checkSorted(arr2));
 		Scanner scan = new Scanner(System.in);
 		/*
@@ -44,6 +45,10 @@ public class PractiseTemp {
 
 	private static int findSecondLargest(int[] arr) {
 		return Arrays.stream(arr).boxed().distinct().sorted(Comparator.reverseOrder()).skip(1).findFirst().get();
+	}
+	
+	private static int findSecondSmallest(int[] arr) {
+		return Arrays.stream(arr).boxed().distinct().sorted(Comparator.naturalOrder()).skip(1).findFirst().get();
 	}
 
 	private static int distanceOfWords(String sentence, String str1, String str2) {

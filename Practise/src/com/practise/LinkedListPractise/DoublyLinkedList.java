@@ -32,6 +32,25 @@ public class DoublyLinkedList {
 		int num = 66;
 		Struct afterInsert = insertAtK(afterDelete,k,num);
 		printDLL(afterInsert);
+		
+		Struct afterReverse = reverseDLL(afterInsert);
+		printDLL(afterReverse);
+	}
+	
+	private static Struct reverseDLL(Struct mmr) {
+		if(mmr==null||mmr.next==null) {
+			return mmr;
+		}
+		Struct current = mmr;
+		Struct prev = null;
+		while(current!=null) {
+			Struct front = current.next;
+			current.next = prev;
+			current.back = front;
+			prev=current;
+			current=front;
+		}
+		return prev;
 	}
 	
 	private static Struct insertAtK(Struct head,int k,int num) {

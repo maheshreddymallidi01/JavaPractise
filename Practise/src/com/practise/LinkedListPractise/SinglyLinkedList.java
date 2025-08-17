@@ -33,6 +33,35 @@ public class SinglyLinkedList {
 		int[] arr2 = {1,2,3,4,5};
 		Node middle = convertToLL(arr2);
 		System.out.println(middleofLL(middle));
+		
+		Node reverse = reverseLL(mmr);
+		printLL(reverse);
+		
+		Node reverseUsingRecursion = reverseLLWithR(reverse);
+		printLL(reverseUsingRecursion);
+	}
+	
+	private static Node reverseLLWithR(Node head) {
+		if(head==null||head.next==null) {
+			return head;
+		}
+		Node newHead = reverseLLWithR(head.next);
+		Node front = head.next;
+		front.next = head;
+		head.next = null;
+		return newHead;
+	}
+	
+	private static Node reverseLL(Node mmr) {
+		Node current = mmr;
+		Node prev = null;
+		while(current!=null) {
+			Node front = current.next;
+			current.next=prev;
+			prev=current;
+			current=front;
+		}
+		return prev;
 	}
 	
 	private static int middleofLL(Node middle) {

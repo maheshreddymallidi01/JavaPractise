@@ -133,7 +133,7 @@ public class SinglyLinkedList {
 		}
 	}
 	
-	private static Node convertToLL(int[] arr) {
+	public static Node convertToLL(int[] arr) {
 		Node head = new Node(arr[0]);
 		Node mover = head;
 		for(int i=1;i<arr.length;i++) {
@@ -144,7 +144,7 @@ public class SinglyLinkedList {
 		return head;
 	}
 	
-	private static void printLL(Node head) {
+	public static void printLL(Node head) {
 		Node temp = head;
 		while(temp!=null) {
 			System.out.print(temp.data+" ");

@@ -18,6 +18,9 @@ public class Palindrome {
 	}
 	
 	private static boolean palindrome(Node head) {
+		if(head==null||head.next==null) {
+			return true;
+		}
 		Node slow = head;
 		Node fast = head;
 		while(fast.next!=null&&fast.next.next!=null) {

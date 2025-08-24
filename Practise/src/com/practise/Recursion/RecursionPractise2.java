@@ -11,6 +11,16 @@ public class RecursionPractise2 {
 		System.out.println();
 		String str = "madam";
 		System.out.println(palindrome(0,str.length(),str));
+		
+		String str2 = "Reverse";
+		System.out.println(reverseOfString(str2));
+	}
+	
+	private static String reverseOfString(String str) {
+		if(str.isEmpty()) {
+			return str;
+		}
+		return reverseOfString(str.substring(1))+str.charAt(0);
 	}
 	
 	private static boolean palindrome(int i,int n,String str) {

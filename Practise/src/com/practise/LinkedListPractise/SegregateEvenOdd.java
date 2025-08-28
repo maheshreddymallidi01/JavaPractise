@@ -14,22 +14,21 @@ public class SegregateEvenOdd {
 		Node oddTail = oddHead;
 		Node evenHead = new Node(-1);
 		Node evenTail = evenHead;
-		Node current = head;
 		Node temp = head;
-		while(current!=null) {
-			temp = current;
-			current=current.next;
-			temp.next=null;
+		while(temp!=null) {
 			if(temp.data%2!=0) {
 				oddTail.next=temp;
-				oddTail=oddTail.next;
+				oddTail=temp;
 			}else {
 				evenTail.next=temp;
-				evenTail=evenTail.next;
+				evenTail=temp;
 			}
+			temp=temp.next;
 		}
+		oddTail.next=null;
 		evenTail.next=oddHead.next;
-		return evenHead.next;
+		
+		return evenHead.next!=null?evenHead.next:oddHead.next;
 	}
 
 }

@@ -122,7 +122,7 @@ public class DoublyLinkedList {
 		return head;
 	}
 	
-	private static Struct convertToDLL(int[] arr) {
+	public static Struct convertToDLL(int[] arr) {
 		Struct head = new Struct(arr[0]);
 		Struct mover = head;
 		for(int i=1;i<arr.length;i++) {
@@ -133,7 +133,7 @@ public class DoublyLinkedList {
 		return head;
 	}
 	
-	private static void printDLL(Struct head) {
+	public static void printDLL(Struct head) {
 		Struct temp = head;
 		while(temp!=null) {
 			System.out.print(temp.data+" ");

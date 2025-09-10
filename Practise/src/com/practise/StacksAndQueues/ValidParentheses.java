@@ -7,6 +7,7 @@ public class ValidParentheses {
 	public static void main(String[] args) {
 		String s ="{[()]}";
 		System.out.println(isValid(s));
+		System.out.println(isValid2(s));
 	}
 	
 	private static boolean isValid(String s) {
@@ -28,4 +29,25 @@ public class ValidParentheses {
 		return true;
 	}
 
+	private static boolean isValid2(String s) {
+	    char[] arr = s.toCharArray();
+	    int top = -1; // acts like stack pointer
+
+	    for (char ch : arr) {
+	        if (ch == '(' || ch == '{' || ch == '[') {
+	            arr[++top] = ch; // push opening
+	        } else {
+	            if (top == -1) return false; // stack empty but found closing
+	            char open = arr[top--];      // pop
+	            if ((open == '(' && ch != ')') ||
+	                (open == '{' && ch != '}') ||
+	                (open == '[' && ch != ']')) {
+	                return false;
+	            }
+	        }
+	    }
+	    return top == -1; // all brackets matched
+	}
+
+	
 }

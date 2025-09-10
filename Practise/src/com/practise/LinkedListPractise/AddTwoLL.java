@@ -3,7 +3,7 @@ package com.practise.LinkedListPractise;
 public class AddTwoLL {
 
 	public static void main(String[] args) {
-		int[] arr1 = {2,4,6};
+		int[] arr1 = {2,4};
 		int[] arr2 = {3,8,7};
 		Node list1=SinglyLinkedList.convertToLL(arr1);
 		Node list2=SinglyLinkedList.convertToLL(arr2);

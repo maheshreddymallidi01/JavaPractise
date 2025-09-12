@@ -13,22 +13,23 @@ public class LargestRectangle {
 		int res = 0;
 		int n = heights.length;
 		Stack<Integer> stc = new Stack<>();
-		for(int i=0;i<=n;i++) {
-			while(!stc.isEmpty()&&(i==n||heights[stc.peek()]>=heights[i])) {
-				int height = heights[stc.peek()];
+		for(int i=0;i<n;i++) {
+			while(!stc.isEmpty()&&heights[stc.peek()]>heights[i]) {
+				int height = heights[stc.pop()];
 				
-				stc.pop();
+				int width = stc.isEmpty()?i:i-stc.peek()-1;
 				
-				int width;
-				
-				if(stc.isEmpty()) {
-					width = i;
-				}else {
-					width = i-stc.peek()-1;
-				}
 				res = Math.max(res, height*width);
 			}
 			stc.push(i);
+		}
+		
+		while(!stc.isEmpty()) {
+			int height = heights[stc.pop()];
+			
+			int width = stc.isEmpty()?n:n-stc.peek()-1;
+			
+			res = Math.max(res, height*width);
 		}
 		return res;
 	}

@@ -9,6 +9,9 @@ public class MaximumSumSubArray {
 	}
 	
 	private static int maximumSumSubArray(int[] arr,int k) {
+		if(arr.length<k) {
+			return -1;
+		}
 		int n = arr.length;
 		int windowSum = 0;
 		

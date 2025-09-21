@@ -30,10 +30,12 @@ public class ValidParentheses {
 	}
 
 	private static boolean isValid2(String s) {
-	    char[] arr = s.toCharArray();
+		int n = s.length();
+	    char[] arr = new char[n]; // removed str.toCharArray() so SC is O(1) now
 	    int top = -1; // acts like stack pointer
 
-	    for (char ch : arr) {
+	    for (int i=0;i<n;i++) {
+	    	char ch = s.charAt(i);
 	        if (ch == '(' || ch == '{' || ch == '[') {
 	            arr[++top] = ch; // push opening
 	        } else {

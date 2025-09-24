@@ -17,6 +17,44 @@ public class SQPractise {
 		int arr[] = {0,1,0,2,1,0,1,3,2,1,2,1};
 		System.out.println(trappedWater(arr));
 		System.out.println(trappedWater2(arr));
+		
+		String removeK = "1432219";
+		int k = 3;
+		System.out.println(removeK(removeK,k));
+	}
+	
+	private static String removeK(String str, int k) {
+		if(k>=str.length()) {
+			return "0";
+		}
+		
+		Deque<Character> dq = new ArrayDeque<>();
+		for(char ch:str.toCharArray()) {
+			while(k>0&&!dq.isEmpty()&&ch<dq.peekLast()){
+				dq.pollLast();
+				k--;
+			}
+			
+			if(!dq.isEmpty()||ch!='0') {
+				dq.addLast(ch);
+			}
+		}
+		
+		while(k>0&&!dq.isEmpty()) {
+			dq.pollLast();
+			k--;
+		}
+		
+		if(dq.isEmpty()) {
+			return "0";
+		}
+		
+		StringBuilder sb = new StringBuilder();
+		for(char ch:dq) {
+			sb.append(ch);
+		}
+		
+		return sb.toString();
 	}
 	
 	private static int trappedWater2(int[] arr) {

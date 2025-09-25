@@ -21,6 +21,33 @@ public class SQPractise {
 		String removeK = "1432219";
 		int k = 3;
 		System.out.println(removeK(removeK,k));
+		
+		int[] heights = {2,1,5,6,2,3};
+		System.out.println(largestRectangle(heights));
+	}
+	
+	private static int largestRectangle(int[] heights) {
+		int res = 0;
+		int n = heights.length;
+		Deque<Integer> dq = new ArrayDeque<Integer>();
+		
+		for(int i=0;i<n;i++) {
+			while(!dq.isEmpty()&&heights[dq.peekLast()]>heights[i]) {
+				int height = heights[dq.pollLast()];
+				
+				int width = dq.isEmpty()?i:i-dq.peekLast()-1;
+				res = Math.max(res, width*height);
+			}
+			dq.offer(i);
+		}
+		
+		while(!dq.isEmpty()) {
+			int height = heights[dq.pollLast()];
+			
+			int width = dq.isEmpty()?n:n-dq.peekLast()-1;
+			res = Math.max(res,width*height);
+		}
+		return res;
 	}
 	
 	private static String removeK(String str, int k) {

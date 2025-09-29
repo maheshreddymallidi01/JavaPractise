@@ -10,9 +10,10 @@ public class RecursionPractise4 {
 		int n = arr.length;
 		List<Integer> mmr = new ArrayList<>();
 		printSS(0,mmr,arr,n);
-		
+		System.out.println("---------------------------");
 		int sum = 3;
 		printSSWhenSum(0,mmr,0,sum,arr,n);
+		System.out.println("---------------------------");
 		printSSWhenSum2(0,mmr,0,sum,arr,n);
 	}
 	

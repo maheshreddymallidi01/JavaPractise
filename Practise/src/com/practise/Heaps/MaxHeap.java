@@ -93,6 +93,23 @@ public class MaxHeap {
 		}
 	}
 	
+	public void buildHeap(int[] arr,int n) {
+		if(n>capacity) {
+			System.out.println("Array exceeds capacity");
+			return;
+		}
+		
+		for(int i=0;i<n;i++) {
+			heap[i]=arr[i];
+		}
+		
+		size = n;
+		
+		for(int i=(size-1)/2;i>=0;i--) {
+			heapifyDown(i);
+		}
+	}
+	
 	public static void main(String[] args) {
 		MaxHeap maxHeap = new MaxHeap(8);
 		
@@ -110,6 +127,13 @@ public class MaxHeap {
 		System.out.println("Max Value in Heap::"+maxHeap.getMaxValue());
 	
 		maxHeap.printHeap();
+		
+		int[] arr = {9, 4, 7, 1, -2, 6, 5};
+	    int n = arr.length;
+	    MaxHeap maxHeap2 = new MaxHeap(20);
+	    maxHeap2.buildHeap(arr, n);
+	    maxHeap2.printHeap();
+		
 	}
 
 }

@@ -93,6 +93,23 @@ public class MinHeap {
 		}
 	}
 	
+	public void buildHeap(int[] arr,int n) {
+		if(n>capacity) {
+			System.out.println("Array exceeds capacity");
+			return;
+		}
+		
+		for(int i=0;i<n;i++) {
+			heap[i]=arr[i];
+		}
+		
+		size = n;
+		
+		for(int i=(size-1)/2;i>=0;i--) {
+			heapifyDown(i);
+		}
+	}
+	
 	public static void main(String[] args) {
 		MinHeap minHeap = new MinHeap(8);
 		
@@ -110,6 +127,12 @@ public class MinHeap {
 		System.out.println("Min Value in Heap::"+minHeap.getMinValue());
 	
 		minHeap.printHeap();
+		
+		int[] arr = {9, 4, 7, 1, -2, 6, 5};
+	    int n = arr.length;
+		MinHeap minHeap2 = new MinHeap(20);
+		minHeap2.buildHeap(arr, n);
+		minHeap2.printHeap();
 	}
 
 }

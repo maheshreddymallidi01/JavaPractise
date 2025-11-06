@@ -14,6 +14,7 @@ public class MaximumDepth {
         root.right.left = new Node(6);
         root.right.right = new Node(7);
         System.out.println(maximumDepth(root));
+        System.out.println(maxDepth(root));
 	}
 	
 	private static int maximumDepth(Node root) {
@@ -35,5 +36,15 @@ public class MaximumDepth {
 			depth++;
 		}
 		return depth;
+	}
+	
+	private static int maxDepth(Node root) {
+		if(root==null) {
+			return 0;
+		}
+		int left = maxDepth(root.left);
+		int right = maxDepth(root.right);
+		
+		return Math.max(left, right)+1;
 	}
 }

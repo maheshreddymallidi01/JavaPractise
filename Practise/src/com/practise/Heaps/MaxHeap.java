@@ -60,13 +60,13 @@ public class MaxHeap {
 			return -1;
 		}
 		
-		int min = heap[0];
+		int max = heap[0];
 		heap[0] = heap[size-1];
 		size--;
 		
 		heapifyDown(0);
 		
-		return min;
+		return max;
 	}
 	
 	private void heapifyDown(int index) {

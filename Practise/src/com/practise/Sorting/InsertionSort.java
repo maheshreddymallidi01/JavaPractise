@@ -1,4 +1,4 @@
-package com.practise.sorting;
+package com.practise.Sorting;
 
 public class InsertionSort {
 

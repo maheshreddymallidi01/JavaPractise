@@ -1,4 +1,4 @@
-package com.practise.sorting;
+package com.practise.Sorting;
 
 import java.util.ArrayList;
 import java.util.List;

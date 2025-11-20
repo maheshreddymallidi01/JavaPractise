@@ -3,8 +3,10 @@ package com.practise.Graphs;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 import java.util.Set;
 
 class Node{
@@ -49,6 +51,10 @@ public class CloneGraph {
         
         Node clonedGraph = cloneGraph(node1);
         printClonedGraph(clonedGraph,new HashSet<>());
+        
+        
+        Node clonedGraphBFS = cloneGraphBFS(node1);
+        printClonedGraph(clonedGraphBFS,new HashSet<>());
 	}
 	
 	private static Node cloneGraph(Node node) {
@@ -93,5 +99,32 @@ public class CloneGraph {
 		for(Node neighbors:node.neighbors) {
 			printClonedGraph(neighbors, visited);
 		}
+	}
+	
+	private static Node cloneGraphBFS(Node node) {
+		if(node==null)
+			return null;
+		
+		Map<Node, Node> map = new HashMap<>();
+		Queue<Node> queue = new LinkedList<>();
+		
+		Node clone = new Node(node.val);
+		map.put(node, clone);
+		queue.add(node);
+		
+		while(!queue.isEmpty()) {
+			Node current = queue.poll();
+			Node clonedCurrent = map.get(current);
+			
+			for(Node neigh:current.neighbors) {
+				if(!map.containsKey(neigh)) {
+					map.put(neigh, new Node(neigh.val));
+					queue.add(neigh);
+				}
+				clonedCurrent.neighbors.add(map.get(neigh));
+			}
+		}
+		
+		return clone;
 	}
 }

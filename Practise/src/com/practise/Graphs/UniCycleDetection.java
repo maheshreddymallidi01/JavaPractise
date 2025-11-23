@@ -101,7 +101,7 @@ public class UniCycleDetection {
 			for(int neigh:graph.get(node)) {
 				if(!visited[neigh]) {
 					visited[neigh]=true;
-					queue.add(new NodeParent(neigh,start));
+					queue.add(new NodeParent(neigh,node));
 				}
 				else if(neigh!=parent) {
 					return true;
